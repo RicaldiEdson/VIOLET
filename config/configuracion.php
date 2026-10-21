@@ -1,17 +1,38 @@
 <?php
 /**
  * VIOLETA - Configuración global de la aplicación
+ * Adaptada tanto para entornos locales (XAMPP) como para producción / hosting web.
  */
 
 // ── Entorno ─────────────────────────────────────────────────────────────────
-define('VIOLETA_ENV',     'development');   // 'development' | 'production'
+$entorno = getenv('VIOLETA_ENV') ?: ($_ENV['VIOLETA_ENV'] ?? 'development');
+define('VIOLETA_ENV',     $entorno);   // 'development' | 'production'
 define('VIOLETA_VERSION', '1.0.0');
 define('VIOLETA_YEAR',    '2026');
 
 // ── Rutas ────────────────────────────────────────────────────────────────────
-// Ajuste BASE_URL si el proyecto no está en la raíz de htdocs/violeta
-define('BASE_URL',  '/violeta');
-define('BASE_PATH', dirname(__DIR__));      // Ruta absoluta al directorio raíz
+define('BASE_PATH', dirname(__DIR__));      // Ruta absoluta en el sistema de archivos del servidor
+
+if (!defined('BASE_URL')) {
+    $envBaseUrl = getenv('BASE_URL') ?: ($_ENV['BASE_URL'] ?? null);
+    if ($envBaseUrl !== null) {
+        define('BASE_URL', rtrim($envBaseUrl, '/'));
+    } else {
+        // Detección automática de la ruta base web respecto al DocumentRoot del servidor
+        $docRoot = isset($_SERVER['DOCUMENT_ROOT']) && $_SERVER['DOCUMENT_ROOT'] !== ''
+            ? str_replace('\\', '/', realpath($_SERVER['DOCUMENT_ROOT']) ?: $_SERVER['DOCUMENT_ROOT'])
+            : '';
+        $appRoot = str_replace('\\', '/', realpath(BASE_PATH) ?: BASE_PATH);
+
+        if (!empty($docRoot) && !empty($appRoot) && str_starts_with($appRoot, $docRoot)) {
+            $subPath = substr($appRoot, strlen($docRoot));
+            define('BASE_URL', rtrim(str_replace('\\', '/', $subPath), '/'));
+        } else {
+            // Fallback para entornos donde no se exponga DOCUMENT_ROOT
+            define('BASE_URL', '/violeta');
+        }
+    }
+}
 
 // ── Quiz ─────────────────────────────────────────────────────────────────────
 define('QUIZ_NUM_PREGUNTAS', 10);           // Preguntas por intento

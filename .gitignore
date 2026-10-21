@@ -1,12 +1,16 @@
 # ============================================================
-# .gitignore para VIOLET (PHP / XAMPP / MySQL)
+# .gitignore para VIOLET (PHP / MySQL / XAMPP / Hosting)
 # ============================================================
 
-# Archivos de entorno y credenciales locales
+# Archivos de entorno y credenciales locales/remotas
 .env
 .env.*
 !.env.example
 *.local
+*.local.php
+config/*.local.php
+!config/*.local.php.example
+!config/conexion.local.php.example
 
 # Logs y registros del servidor
 *.log

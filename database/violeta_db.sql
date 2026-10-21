@@ -10,7 +10,14 @@ SET CHARACTER SET utf8mb4;
 SET time_zone = '-04:00';
 SET foreign_key_checks = 0;
 
--- Crear base de datos
+-- ============================================================
+-- CREACIÓN DE BASE DE DATOS:
+-- En entorno local (XAMPP / root) crea la base de datos 'violeta_db'.
+-- En hostings compartidos (InfinityFree, cPanel, Alwaysdata) donde
+-- la base de datos ya fue creada desde el panel, seleccione su base
+-- de datos antes de importar y comente las siguientes 2 sentencias
+-- si su proveedor restringe CREATE DATABASE / USE:
+-- ============================================================
 CREATE DATABASE IF NOT EXISTS `violeta_db`
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;

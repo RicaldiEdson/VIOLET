@@ -1,0 +1,21 @@
+<?php
+/**
+ * VIOLETA - Plantilla de configuración local / hosting
+ * 
+ * Copie este archivo como "config/conexion.local.php" en su servidor de hosting
+ * y defina las credenciales proporcionadas por su proveedor de base de datos.
+ * 
+ * NOTA DE SEGURIDAD:
+ * Este archivo no debe subirse a repositorios públicos de control de versiones.
+ * Ya está protegido en el archivo .gitignore.
+ */
+
+define('DB_HOST', 'localhost');          // O el host asignado por su proveedor (ej: sql123.infinityfree.com)
+define('DB_PORT', '3306');               // Puerto de MySQL (usualmente 3306 en hostings)
+define('DB_NAME', 'mi_base_de_datos');   // Nombre exacto de la base de datos creada en el hosting
+define('DB_USER', 'mi_usuario');         // Usuario asignado por el hosting
+define('DB_PASS', 'mi_password_seguro'); // Contraseña del usuario de la base de datos
+define('DB_CHARSET', 'utf8mb4');
+
+// Opcional: Si el hosting despliega en una subcarpeta o desea forzar BASE_URL:
+// define('BASE_URL', ''); // Para dominio raíz: '' | Para subcarpeta: '/violeta'
