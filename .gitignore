@@ -1,0 +1,62 @@
+# ============================================================
+# .gitignore para VIOLET (PHP / XAMPP / MySQL)
+# ============================================================
+
+# Archivos de entorno y credenciales locales
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs y registros del servidor
+*.log
+logs/
+error_log
+
+# Archivos temporales y cachés
+tmp/
+temp/
+cache/
+*.tmp
+*.bak
+*.swp
+*~
+
+# Archivos de configuración del sistema operativo
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Editores e IDEs (Visual Studio Code, PhpStorm, NetBeans, Eclipse)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.buildpath
+.project
+.settings/
+nbproject/
+
+# Carpetas de dependencias (Composer / NPM si se usan a futuro)
+/vendor/
+/node_modules/
+
+# Respaldos y volcados temporales (excepto la base de datos oficial del proyecto)
+*.sql.gz
+*.sql.bak
+*.dump
+
+# Conservar expresamente los archivos y carpetas requeridos del proyecto
+!database/
+!database/violeta_db.sql
