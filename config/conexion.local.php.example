@@ -2,35 +2,37 @@
 /**
  * VIOLET - Plantilla de Configuración para InfinityFree
  * 
- * INSTRUCCIONES PARA DESPLIEGUE EN INFINITYFREE:
- * 1. En el Administrador de Archivos de InfinityFree, dentro de la carpeta "config/",
+ * Dominio: violet.gamer.free
+ * Directorio público: htdocs
+ * 
+ * INSTRUCCIONES:
+ * 1. En el Administrador de Archivos de InfinityFree, dentro de "htdocs/config/",
  *    cree un archivo llamado "conexion.local.php".
- * 2. Copie este contenido y reemplace los valores entre comillas con los datos
- *    reales que aparecen en la sección "MySQL Databases" de su panel de InfinityFree.
- * 3. Guarde el archivo.
+ * 2. Copie este contenido y reemplace TU_PASSWORD_DE_INFINITYFREE con su contraseña
+ *    de cuenta/vPanel de InfinityFree.
+ * 3. Guarde los cambios.
  * 
  * NOTA DE SEGURIDAD:
- * Este archivo permanece exclusivamente en su servidor y NO se sube a GitHub.
+ * Este archivo permanece exclusivamente en su servidor y NO se versiona en Git.
  */
 
-// Host de la base de datos (Ejemplo: sql123.infinityfree.com o sql200.epizy.com)
-// NO usar localhost, 127.0.0.1 ni 3307 en el hosting remoto.
-define('DB_HOST', 'sqlXXX.infinityfree.com');
+// Host de la base de datos de InfinityFree
+define('DB_HOST', 'sql313.infinityfree.com');
 
-// Puerto MySQL de InfinityFree (estándar: 3306)
+// Puerto MySQL estándar
 define('DB_PORT', '3306');
 
-// Nombre completo de la base de datos creada en el panel (Ejemplo: if0_38000000_violeta)
-define('DB_NAME', 'if0_XXXXXXXX_violeta');
+// Nombre de la base de datos remota
+define('DB_NAME', 'if0_43236647_violeta_db');
 
-// Nombre de usuario de MySQL asignado por InfinityFree (Ejemplo: if0_38000000)
-define('DB_USER', 'if0_XXXXXXXX');
+// Usuario MySQL de InfinityFree
+define('DB_USER', 'if0_43236647');
 
-// Contraseña de la cuenta de hosting de InfinityFree (vPanel Password)
+// Contraseña de la cuenta de InfinityFree (Account / vPanel Password)
 define('DB_PASS', 'TU_PASSWORD_DE_INFINITYFREE');
 
 // Codificación de caracteres recomendada
 define('DB_CHARSET', 'utf8mb4');
 
-// En InfinityFree, al colocar los archivos en la raíz de htdocs/, la URL base es vacía:
+// En InfinityFree, la aplicación corre en la raíz de htdocs/ para el dominio violet.gamer.free:
 define('BASE_URL', '');

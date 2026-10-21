@@ -17,6 +17,10 @@ config/*.local.php
 logs/
 error_log
 
+# Carpeta y archivo de exportación para despliegue en hosting
+/deploy_violet/
+/deploy_violet.zip
+
 # Archivos temporales y cachés
 tmp/
 temp/
