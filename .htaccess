@@ -1,0 +1,42 @@
+# ============================================================
+# VIOLET - Configuración del Servidor Apache (.htaccess)
+# ============================================================
+
+# 1. Definir archivo índice por defecto
+DirectoryIndex index.php
+
+# 2. Desactivar el listado de directorios (evita que se exploren carpetas)
+Options -Indexes
+
+# 3. Forzar codificación de caracteres UTF-8
+AddDefaultCharset UTF-8
+
+# 4. Proteger archivos sensibles, de configuración y bases de datos
+<FilesMatch "^(\.env|\.git|\.htaccess|.*\.sql|.*\.log|.*\.bak|.*\.example)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 5. Proteger el archivo de credenciales locales si se encuentra en config/
+<Files "conexion.local.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# 6. Cabeceras de seguridad básicas
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

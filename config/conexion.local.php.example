@@ -1,21 +1,36 @@
 <?php
 /**
- * VIOLETA - Plantilla de configuración local / hosting
+ * VIOLET - Plantilla de Configuración para InfinityFree
  * 
- * Copie este archivo como "config/conexion.local.php" en su servidor de hosting
- * y defina las credenciales proporcionadas por su proveedor de base de datos.
+ * INSTRUCCIONES PARA DESPLIEGUE EN INFINITYFREE:
+ * 1. En el Administrador de Archivos de InfinityFree, dentro de la carpeta "config/",
+ *    cree un archivo llamado "conexion.local.php".
+ * 2. Copie este contenido y reemplace los valores entre comillas con los datos
+ *    reales que aparecen en la sección "MySQL Databases" de su panel de InfinityFree.
+ * 3. Guarde el archivo.
  * 
  * NOTA DE SEGURIDAD:
- * Este archivo no debe subirse a repositorios públicos de control de versiones.
- * Ya está protegido en el archivo .gitignore.
+ * Este archivo permanece exclusivamente en su servidor y NO se sube a GitHub.
  */
 
-define('DB_HOST', 'localhost');          // O el host asignado por su proveedor (ej: sql123.infinityfree.com)
-define('DB_PORT', '3306');               // Puerto de MySQL (usualmente 3306 en hostings)
-define('DB_NAME', 'mi_base_de_datos');   // Nombre exacto de la base de datos creada en el hosting
-define('DB_USER', 'mi_usuario');         // Usuario asignado por el hosting
-define('DB_PASS', 'mi_password_seguro'); // Contraseña del usuario de la base de datos
+// Host de la base de datos (Ejemplo: sql123.infinityfree.com o sql200.epizy.com)
+// NO usar localhost, 127.0.0.1 ni 3307 en el hosting remoto.
+define('DB_HOST', 'sqlXXX.infinityfree.com');
+
+// Puerto MySQL de InfinityFree (estándar: 3306)
+define('DB_PORT', '3306');
+
+// Nombre completo de la base de datos creada en el panel (Ejemplo: if0_38000000_violeta)
+define('DB_NAME', 'if0_XXXXXXXX_violeta');
+
+// Nombre de usuario de MySQL asignado por InfinityFree (Ejemplo: if0_38000000)
+define('DB_USER', 'if0_XXXXXXXX');
+
+// Contraseña de la cuenta de hosting de InfinityFree (vPanel Password)
+define('DB_PASS', 'TU_PASSWORD_DE_INFINITYFREE');
+
+// Codificación de caracteres recomendada
 define('DB_CHARSET', 'utf8mb4');
 
-// Opcional: Si el hosting despliega en una subcarpeta o desea forzar BASE_URL:
-// define('BASE_URL', ''); // Para dominio raíz: '' | Para subcarpeta: '/violeta'
+// En InfinityFree, al colocar los archivos en la raíz de htdocs/, la URL base es vacía:
+define('BASE_URL', '');
